@@ -471,3 +471,7 @@ write generic, optimistic explanations; I revised them to tie every claim to a
 concrete property of the code (e.g. that the stylometric signal "measures surface
 regularity, not authorship") and to cite real scores lifted from `audit_log.jsonl`
 rather than illustrative made-up numbers.
+
+Loom Walkthrough: 
+
+https://www.loom.com/share/01b7ab149ee647e9bf5c1a525ec8f752
