@@ -96,10 +96,12 @@ Human writing tends to be more varied, while AI-generated writing often follows 
 
 ```json
 {
-  "content_id": "12345",
-  "attribution": "Likely AI",
-  "confidence": 0.82,
-  "label": "Likely AI-Generated"
+  "content_id": "72387cb2-17ac-4193-b91d-05819e359be2",
+  "attribution": "likely_ai",
+  "confidence": 0.6095,
+  "label": "Likely AI-Generated",
+  "llm_score": 0.8,
+  "stylometric_score": 0.4189
 }
 ```
 
@@ -120,7 +122,9 @@ Human writing tends to be more varied, while AI-generated writing often follows 
 
 ```json
 {
-  "status": "under_review"
+  "content_id": "72387cb2-17ac-4193-b91d-05819e359be2",
+  "status": "under_review",
+  "message": "Your appeal was received and is under review."
 }
 ```
 
@@ -128,7 +132,7 @@ Human writing tends to be more varied, while AI-generated writing often follows 
 
 ## GET /log
 
-Returns all structured audit log entries as JSON.
+Returns the most recent structured audit log entries as JSON.
 
 ---
 
@@ -182,13 +186,13 @@ The resulting confidence score ranges from **0.0** to **1.0**.
 
 ## Uncertainty Representation
 
-| Confidence Score | Classification |
-| ---------------: | -------------- |
-|      0.00 – 0.25 | Human          |
-|      0.26 – 0.45 | Likely Human   |
-|      0.46 – 0.54 | Uncertain      |
-|      0.55 – 0.75 | Likely AI      |
-|      0.76 – 1.00 | AI             |
+| Confidence Score | Attribution    | Transparency Label   |
+| ---------------: | -------------- | -------------------- |
+|      0.00 – 0.25 | `human`        | Likely Human-Written |
+|      0.26 – 0.45 | `likely_human` | Likely Human-Written |
+|      0.46 – 0.54 | `uncertain`    | Uncertain Result     |
+|      0.55 – 0.75 | `likely_ai`    | Likely AI-Generated  |
+|      0.76 – 1.00 | `ai`           | Likely AI-Generated  |
 
 The **Uncertain** category is used whenever the two signals disagree significantly or neither signal provides enough confidence for a reliable decision.
 
